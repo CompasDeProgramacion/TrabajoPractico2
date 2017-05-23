@@ -128,12 +128,10 @@ public class MainActivity extends AppCompatActivity
         if (NumeroImagen == 0)
         {
             BotonACambiar.setImageResource(R.drawable.rojo);
-            BotonACambiar.setTag(0);
         }
         else
         {
             BotonACambiar.setImageResource(R.drawable.verde);
-            BotonACambiar.setTag(1);
         }
         return NumeroImagen;
     }
@@ -142,112 +140,63 @@ public class MainActivity extends AppCompatActivity
     {
         ImageButton BotonPresionado = (ImageButton)VistaBoton;
         int TagBotonPresionado = (int)BotonPresionado.getTag();
-        for (int JUJU=0; JUJU<=8; JUJU++)
-        {
-            switch (JUJU)
+        switch (TagBotonPresionado)
             {
                 case 0:
-                    if(TagBotonPresionado == 0) //Si el tag es 0, significa que es rojo y tiene que ser cambiado a verde
-                    {
-                        ArrayBotones[0].setImageResource(R.drawable.verde);
-                        ArrayBotones[0].setTag(1);
-                        ArrayBotones[1].setImageResource(R.drawable.rojo);
-                        ArrayBotones[3].setImageResource(R.drawable.rojo);
-                        ArrayBotones[4].setImageResource(R.drawable.rojo);
-                    }
-                    else
-                    {
-                        ArrayBotones[0].setImageResource(R.drawable.rojo);
-                        ArrayBotones[0].setTag(0);
-                        ArrayBotones[1].setImageResource(R.drawable.verde);
-                        ArrayBotones[3].setImageResource(R.drawable.verde);
-                        ArrayBotones[4].setImageResource(R.drawable.verde);
-                    }
-
+                    InversionBotones(TagBotonPresionado, 0, 1, 3, 4);
                 case 1:
-                    if(TagBotonPresionado == 0) //Si el tag es 0, significa que es rojo y tiene que ser cambiado a verde
-                    {
-                        ArrayBotones[1].setImageResource(R.drawable.verde);
-                        ArrayBotones[1].setTag(1);
-                        ArrayBotones[2].setImageResource(R.drawable.rojo);
-                        ArrayBotones[3].setImageResource(R.drawable.rojo);
-                        ArrayBotones[5].setImageResource(R.drawable.rojo);
-                    }
-                    else
-                    {
-                        ArrayBotones[1].setImageResource(R.drawable.rojo);
-                        ArrayBotones[1].setTag(0);
-                        ArrayBotones[2].setImageResource(R.drawable.verde);
-                        ArrayBotones[3].setImageResource(R.drawable.verde);
-                        ArrayBotones[5].setImageResource(R.drawable.verde);
-                    }
-
+                    InversionBotones(TagBotonPresionado, 1, 2, 3, 5);
                 case 2:
-                    if(TagBotonPresionado == 0) //Si el tag es 0, significa que es rojo y tiene que ser cambiado a verde
-                    {
-                        ArrayBotones[2].setImageResource(R.drawable.verde);
-                        ArrayBotones[2].setTag(1);
-                        ArrayBotones[3].setImageResource(R.drawable.rojo);
-                        ArrayBotones[5].setImageResource(R.drawable.rojo);
-                        ArrayBotones[6].setImageResource(R.drawable.rojo);
-                    }
-                    else
-                    {
-                        ArrayBotones[2].setImageResource(R.drawable.rojo);
-                        ArrayBotones[2].setTag(0);
-                        ArrayBotones[3].setImageResource(R.drawable.verde);
-                        ArrayBotones[5].setImageResource(R.drawable.verde);
-                        ArrayBotones[6].setImageResource(R.drawable.verde);
-                    }
+                    InversionBotones(TagBotonPresionado, 2, 2, 5, 6);
                 case 3:
-                    if(TagBotonPresionado == 0) //Si el tag es 0, significa que es rojo y tiene que ser cambiado a verde
+                    InversionBotones(TagBotonPresionado, 3, 0, 4, 6);
+                case 4:
+                    /*if(TagBotonPresionado == 0)
                     {
-                        ArrayBotones[3].setImageResource(R.drawable.verde);
-                        ArrayBotones[3].setTag(1);
+                        ArrayBotones[4].setImageResource(R.drawable.verde);
+                        ArrayBotones[4].setTag(1);
+                        ArrayBotones[1].setImageResource(R.drawable.rojo);
                         ArrayBotones[3].setImageResource(R.drawable.rojo);
                         ArrayBotones[5].setImageResource(R.drawable.rojo);
-                        ArrayBotones[6].setImageResource(R.drawable.rojo);
+                        ArrayBotones[7].setImageResource(R.drawable.rojo);
                     }
                     else
                     {
-                        ArrayBotones[3].setImageResource(R.drawable.rojo);
-                        ArrayBotones[3].setTag(0);
+                        ArrayBotones[4].setImageResource(R.drawable.rojo);
+                        ArrayBotones[4].setTag(1);
+                        ArrayBotones[1].setImageResource(R.drawable.verde);
                         ArrayBotones[3].setImageResource(R.drawable.verde);
                         ArrayBotones[5].setImageResource(R.drawable.verde);
-                        ArrayBotones[6].setImageResource(R.drawable.verde);
-                    }
-
-                case 4:
-
+                        ArrayBotones[7].setImageResource(R.drawable.verde);
+                    }*/
                 case 5:
-
+                    InversionBotones(TagBotonPresionado, 5, 2, 4, 8);
                 case 6:
-
+                    InversionBotones(TagBotonPresionado, 6, 3, 4, 7);
                 case 7:
-
+                    InversionBotones(TagBotonPresionado, 7, 4, 6, 8);
                 case 8:
+                    InversionBotones(TagBotonPresionado, 8, 4, 5, 7);
             }
 
-        }
-
     }
-    public void InversionBotones(int BtnA, int BtnB, int BtnC, int BtnD)
+
+
+    public void InversionBotones(int TagRecibido, int BtnApretado, int BtnACambiarA, int BtnACambiarB, int BtnACambiarC)
     {
-        if(0 == 0) //Si el tag es 0, significa que es rojo y tiene que ser cambiado a verde
+        if(TagRecibido == 0) //Si el tag es 0, significa que es rojo y tiene que ser cambiado a verde
         {
-            ArrayBotones[3].setImageResource(R.drawable.verde);
-            ArrayBotones[3].setTag(1);
-            ArrayBotones[3].setImageResource(R.drawable.rojo);
-            ArrayBotones[5].setImageResource(R.drawable.rojo);
-            ArrayBotones[6].setImageResource(R.drawable.rojo);
+            ArrayBotones[BtnApretado].setImageResource(R.drawable.verde);
+            ArrayBotones[BtnACambiarA].setImageResource(R.drawable.rojo);
+            ArrayBotones[BtnACambiarB].setImageResource(R.drawable.rojo);
+            ArrayBotones[BtnACambiarC].setImageResource(R.drawable.rojo);
         }
         else
         {
-            ArrayBotones[3].setImageResource(R.drawable.rojo);
-            ArrayBotones[3].setTag(0);
-            ArrayBotones[3].setImageResource(R.drawable.verde);
-            ArrayBotones[5].setImageResource(R.drawable.verde);
-            ArrayBotones[6].setImageResource(R.drawable.verde);
+            ArrayBotones[BtnApretado].setImageResource(R.drawable.rojo);
+            ArrayBotones[BtnACambiarA].setImageResource(R.drawable.verde);
+            ArrayBotones[BtnACambiarB].setImageResource(R.drawable.verde);
+            ArrayBotones[BtnACambiarC].setImageResource(R.drawable.verde);
         }
     }
 

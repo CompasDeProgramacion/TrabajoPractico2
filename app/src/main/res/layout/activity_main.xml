@@ -32,7 +32,7 @@
 
         <ImageButton
             android:id="@+id/Boton2"
-            android:tag="0"
+            android:tag="1"
             android:layout_width="125dp"
             android:layout_height="125dp"
             android:onClick="Boton"
@@ -43,7 +43,7 @@
 
         <ImageButton
             android:id="@+id/Boton3"
-            android:tag=""
+            android:tag="2"
             android:layout_width="125dp"
             android:layout_height="125dp"
             android:scaleType="centerInside"
@@ -57,7 +57,7 @@
             android:orientation="horizontal">
             <ImageButton
                 android:id="@+id/Boton4"
-                android:tag=""
+                android:tag="3"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
                 android:scaleType="centerInside"
@@ -66,7 +66,7 @@
 
             <ImageButton
                 android:id="@+id/Boton5"
-                android:tag=""
+                android:tag="4"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
                 android:scaleType="centerInside"
@@ -75,7 +75,7 @@
 
             <ImageButton
                 android:id="@+id/Boton6"
-                android:tag=""
+                android:tag="5"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
                 android:scaleType="centerInside"
@@ -90,7 +90,7 @@
 
             <ImageButton
                 android:id="@+id/Boton7"
-                android:tag=""
+                android:tag="6"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
                 android:scaleType="centerInside"
@@ -99,7 +99,7 @@
 
             <ImageButton
                 android:id="@+id/Boton8"
-                android:tag=""
+                android:tag="7"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
                 android:scaleType="centerInside"
@@ -108,7 +108,7 @@
 
             <ImageButton
                 android:id="@+id/Boton9"
-                android:tag=""
+                android:tag="8"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
                 android:scaleType="centerInside"
