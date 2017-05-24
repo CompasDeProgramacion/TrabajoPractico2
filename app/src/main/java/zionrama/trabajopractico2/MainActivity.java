@@ -147,30 +147,39 @@ public class MainActivity extends AppCompatActivity
             {
                 case (0):
                     InversionBotones(0, 1, 3, 4);
+                    ChequeoSiGane();
                     break;
                 case (1):
                     InversionBotones(1, 0, 2, 4);
+                    ChequeoSiGane();
                     break;
                 case (2):
                     InversionBotones(2, 1, 4, 5);
+                    ChequeoSiGane();
                     break;
                 case (3):
                     InversionBotones(3, 0, 4, 6);
+                    ChequeoSiGane();
                     break;
                 case (4):
                     InversionBotones(4, 1, 3, 5);
+                    ChequeoSiGane();
                     break;
                 case (5):
                     InversionBotones(5, 2, 4, 8);
+                    ChequeoSiGane();
                     break;
                 case (6):
                     InversionBotones(6, 3, 4, 7);
+                    ChequeoSiGane();
                     break;
                 case (7):
                     InversionBotones(7, 4, 6, 8);
+                    ChequeoSiGane();
                     break;
                 case (8):
                     InversionBotones(8, 4, 5, 7);
+                    ChequeoSiGane();
                     break;
             }
     }
@@ -215,6 +224,54 @@ public class MainActivity extends AppCompatActivity
                 ArrayBotones[BtnACambiarB].setImageResource(R.drawable.verde);
                 ArrayBotones[BtnACambiarC].setImageResource(R.drawable.verde);
             }
+        }
+    }
+
+    public void ChequeoSiGane()
+    {
+        Drawable.ConstantState CodigoImagenRojo = ContextCompat.getDrawable(this, R.drawable.rojo).getConstantState();
+        Drawable.ConstantState CodigoImagenVerde = ContextCompat.getDrawable(this, R.drawable.verde).getConstantState();
+        int i = 0;
+        switch (i)
+        {
+           case 0:
+               int ContadorGanadorRojo = 0;
+               for (int JUJU=0; JUJU <=8; JUJU++)
+               {
+                   Drawable.ConstantState CodigoBoton = ArrayBotones[JUJU].getDrawable().getConstantState();
+                   if (CodigoBoton == CodigoImagenRojo)
+                   {
+                       ContadorGanadorRojo++;
+                       if(ContadorGanadorRojo == 8)
+                       {
+                           //GANÓ
+                       }
+                   }
+                   else
+                   {
+                       i++;
+                       break;
+                   }
+                }
+            case 1:
+                int ContadorGanadorVerde = 0;
+                for (int JUJU=0; JUJU <=8; JUJU++)
+                {
+                    Drawable.ConstantState CodigoBoton = ArrayBotones[JUJU].getDrawable().getConstantState();
+                    if (CodigoBoton == CodigoImagenVerde)
+                    {
+                        ContadorGanadorVerde++;
+                        if(ContadorGanadorVerde == 8)
+                        {
+                            //GANÓ
+                        }
+                    }
+                    else
+                    {
+                        i++;
+                        break;
+                    }
+                }
         }
     }
 
