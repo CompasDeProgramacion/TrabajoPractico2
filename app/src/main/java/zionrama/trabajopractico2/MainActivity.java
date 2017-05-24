@@ -145,24 +145,33 @@ public class MainActivity extends AppCompatActivity
         int IntBotonPresionado = Integer.parseInt(StrBotonPresionado);
         switch (IntBotonPresionado)
             {
-                case 0:
+                case (0):
                     InversionBotones(0, 1, 3, 4);
-                case 1:
-                    InversionBotones(1, 2, 3, 5);
-                case 2:
-                    InversionBotones(2, 2, 5, 6);
-                case 3:
+                    break;
+                case (1):
+                    InversionBotones(1, 0, 2, 4);
+                    break;
+                case (2):
+                    InversionBotones(2, 1, 4, 5);
+                    break;
+                case (3):
                     InversionBotones(3, 0, 4, 6);
-                case 4:
+                    break;
+                case (4):
                     InversionBotones(4, 1, 3, 5);
-                case 5:
+                    break;
+                case (5):
                     InversionBotones(5, 2, 4, 8);
-                case 6:
+                    break;
+                case (6):
                     InversionBotones(6, 3, 4, 7);
-                case 7:
+                    break;
+                case (7):
                     InversionBotones(7, 4, 6, 8);
-                case 8:
+                    break;
+                case (8):
                     InversionBotones(8, 4, 5, 7);
+                    break;
             }
     }
 
