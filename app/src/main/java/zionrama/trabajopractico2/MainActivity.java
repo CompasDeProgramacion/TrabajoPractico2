@@ -1,8 +1,10 @@
 package zionrama.trabajopractico2;
 
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.net.Uri;
 import android.nfc.Tag;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.BoringLayout;
@@ -78,7 +80,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    void AsignarImagen()
+    void AsignarImagen() //Funciona hiper perfecto
     {
         for (int i = 0; i <= 8; i++)
         {
@@ -138,65 +140,72 @@ public class MainActivity extends AppCompatActivity
 
     public void Boton (View VistaBoton)
     {
-        ImageButton BotonPresionado = (ImageButton)VistaBoton;
-        int TagBotonPresionado = (int)BotonPresionado.getTag();
-        switch (TagBotonPresionado)
+       ImageButton BotonPresionado = (ImageButton)VistaBoton;
+        String StrBotonPresionado = BotonPresionado.getTag().toString();
+        int IntBotonPresionado = Integer.parseInt(StrBotonPresionado);
+        switch (IntBotonPresionado)
             {
                 case 0:
-                    InversionBotones(TagBotonPresionado, 0, 1, 3, 4);
+                    InversionBotones(0, 1, 3, 4);
                 case 1:
-                    InversionBotones(TagBotonPresionado, 1, 2, 3, 5);
+                    InversionBotones(1, 2, 3, 5);
                 case 2:
-                    InversionBotones(TagBotonPresionado, 2, 2, 5, 6);
+                    InversionBotones(2, 2, 5, 6);
                 case 3:
-                    InversionBotones(TagBotonPresionado, 3, 0, 4, 6);
+                    InversionBotones(3, 0, 4, 6);
                 case 4:
-                    /*if(TagBotonPresionado == 0)
-                    {
-                        ArrayBotones[4].setImageResource(R.drawable.verde);
-                        ArrayBotones[4].setTag(1);
-                        ArrayBotones[1].setImageResource(R.drawable.rojo);
-                        ArrayBotones[3].setImageResource(R.drawable.rojo);
-                        ArrayBotones[5].setImageResource(R.drawable.rojo);
-                        ArrayBotones[7].setImageResource(R.drawable.rojo);
-                    }
-                    else
-                    {
-                        ArrayBotones[4].setImageResource(R.drawable.rojo);
-                        ArrayBotones[4].setTag(1);
-                        ArrayBotones[1].setImageResource(R.drawable.verde);
-                        ArrayBotones[3].setImageResource(R.drawable.verde);
-                        ArrayBotones[5].setImageResource(R.drawable.verde);
-                        ArrayBotones[7].setImageResource(R.drawable.verde);
-                    }*/
+                    InversionBotones(4, 1, 3, 5);
                 case 5:
-                    InversionBotones(TagBotonPresionado, 5, 2, 4, 8);
+                    InversionBotones(5, 2, 4, 8);
                 case 6:
-                    InversionBotones(TagBotonPresionado, 6, 3, 4, 7);
+                    InversionBotones(6, 3, 4, 7);
                 case 7:
-                    InversionBotones(TagBotonPresionado, 7, 4, 6, 8);
+                    InversionBotones(7, 4, 6, 8);
                 case 8:
-                    InversionBotones(TagBotonPresionado, 8, 4, 5, 7);
+                    InversionBotones(8, 4, 5, 7);
             }
-
     }
 
 
-    public void InversionBotones(int TagRecibido, int BtnApretado, int BtnACambiarA, int BtnACambiarB, int BtnACambiarC)
+    public void InversionBotones(int BtnApretado, int BtnACambiarA, int BtnACambiarB, int BtnACambiarC)
     {
-        if(TagRecibido == 0) //Si el tag es 0, significa que es rojo y tiene que ser cambiado a verde
+        Drawable.ConstantState CodigoImagenRojo = ContextCompat.getDrawable(this, R.drawable.rojo).getConstantState();
+        Drawable.ConstantState CodigoImagenBotonApretado = ArrayBotones[BtnApretado].getDrawable().getConstantState();
+        if (BtnApretado == 4)
         {
-            ArrayBotones[BtnApretado].setImageResource(R.drawable.verde);
-            ArrayBotones[BtnACambiarA].setImageResource(R.drawable.rojo);
-            ArrayBotones[BtnACambiarB].setImageResource(R.drawable.rojo);
-            ArrayBotones[BtnACambiarC].setImageResource(R.drawable.rojo);
+            if (CodigoImagenBotonApretado == CodigoImagenRojo) //Si se cumple, significa que es rojo y tiene que ser cambiado a verde
+            {
+                ArrayBotones[BtnApretado].setImageResource(R.drawable.verde);
+                ArrayBotones[BtnACambiarA].setImageResource(R.drawable.rojo);
+                ArrayBotones[BtnACambiarB].setImageResource(R.drawable.rojo);
+                ArrayBotones[BtnACambiarC].setImageResource(R.drawable.rojo);
+                ArrayBotones[7].setImageResource(R.drawable.rojo);
+            }
+            else
+            {
+                ArrayBotones[BtnApretado].setImageResource(R.drawable.rojo);
+                ArrayBotones[BtnACambiarA].setImageResource(R.drawable.verde);
+                ArrayBotones[BtnACambiarB].setImageResource(R.drawable.verde);
+                ArrayBotones[BtnACambiarC].setImageResource(R.drawable.verde);
+                ArrayBotones[7].setImageResource(R.drawable.verde);
+            }
         }
         else
         {
-            ArrayBotones[BtnApretado].setImageResource(R.drawable.rojo);
-            ArrayBotones[BtnACambiarA].setImageResource(R.drawable.verde);
-            ArrayBotones[BtnACambiarB].setImageResource(R.drawable.verde);
-            ArrayBotones[BtnACambiarC].setImageResource(R.drawable.verde);
+            if (CodigoImagenBotonApretado == CodigoImagenRojo) //Si se cumple, significa que es rojo y tiene que ser cambiado a verde
+            {
+                ArrayBotones[BtnApretado].setImageResource(R.drawable.verde);
+                ArrayBotones[BtnACambiarA].setImageResource(R.drawable.rojo);
+                ArrayBotones[BtnACambiarB].setImageResource(R.drawable.rojo);
+                ArrayBotones[BtnACambiarC].setImageResource(R.drawable.rojo);
+            }
+            else
+            {
+                ArrayBotones[BtnApretado].setImageResource(R.drawable.rojo);
+                ArrayBotones[BtnACambiarA].setImageResource(R.drawable.verde);
+                ArrayBotones[BtnACambiarB].setImageResource(R.drawable.verde);
+                ArrayBotones[BtnACambiarC].setImageResource(R.drawable.verde);
+            }
         }
     }
 
