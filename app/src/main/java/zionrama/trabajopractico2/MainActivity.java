@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    public void InversionBotones(int BtnApretado, int BtnACambiarA, int BtnACambiarB, int BtnACambiarC) //Funca baby
+    public void InversionBotones(int BtnApretado, int BtnACambiarA, int BtnACambiarB, int BtnACambiarC) //Funca baby de manera muy piola
     {
         Drawable.ConstantState CodigoImagenRojo = ContextCompat.getDrawable(this, R.drawable.rojo).getConstantState();
         ImageButton[] ArrayBotonesAux = new ImageButton[4];
@@ -193,35 +193,26 @@ public class MainActivity extends AppCompatActivity
         ArrayBotonesAux[1] = ArrayBotones[BtnACambiarA];
         ArrayBotonesAux[2] = ArrayBotones[BtnACambiarB];
         ArrayBotonesAux[3] = ArrayBotones[BtnACambiarC];
-        for(int i=0; i<=4; i++)
+        for(int i=0; i<=3; i++)
         {
-            Drawable.ConstantState CodigoImagenBotonApretado = ArrayBotones[i].getDrawable().getConstantState();
+            Drawable.ConstantState CodigoImagenBotonApretado = ArrayBotonesAux[i].getDrawable().getConstantState();
             if (CodigoImagenBotonApretado == CodigoImagenRojo)
             {
                 ArrayBotonesAux[i].setImageResource(R.drawable.verde);
+                if (BtnApretado == 4)
+                {
+                    ArrayBotones[7].setImageResource(R.drawable.verde);
+                }
             }
             else
             {
                 ArrayBotonesAux[i].setImageResource(R.drawable.rojo);
-            }
-        }
-
-        if (BtnApretado == 4)
-        {
-            for(int i=0; i<=4; i++)
-            {
-                Drawable.ConstantState CodigoImagenBotonApretado = ArrayBotones[i].getDrawable().getConstantState();
-                if (CodigoImagenBotonApretado == CodigoImagenRojo)
+                if (BtnApretado == 4)
                 {
-                    ArrayBotonesAux[i].setImageResource(R.drawable.verde);
-                }
-                else
-                {
-                    ArrayBotonesAux[i].setImageResource(R.drawable.rojo);
+                    ArrayBotones[7].setImageResource(R.drawable.rojo);
                 }
             }
         }
-
     }
 
     public void ChequeoSiGane() //EN CONSTRUCCIÓN
@@ -243,6 +234,11 @@ public class MainActivity extends AppCompatActivity
                        {
                            Toast MensajeGanador = Toast.makeText(this, "¡Felicidades, ganaste!", Toast.LENGTH_SHORT);
                            MensajeGanador.show();
+                           for (int GANASTEBABY = 0; GANASTEBABY <= 8; GANASTEBABY++)
+                           {
+                               ArrayBotones[GANASTEBABY].setEnabled(false);
+                               ArrayBotones[GANASTEBABY].setImageResource(android.R.color.transparent);
+                           }
                            break;
                        }
                    }
@@ -264,6 +260,11 @@ public class MainActivity extends AppCompatActivity
                         {
                             Toast MensajeGanador = Toast.makeText(this, "¡Felicidades, ganaste!", Toast.LENGTH_SHORT);
                             MensajeGanador.show();
+                            for (int GANASTEBABY = 0; GANASTEBABY <= 8; GANASTEBABY++)
+                            {
+                                ArrayBotones[GANASTEBABY].setEnabled(false);
+                                ArrayBotones[GANASTEBABY].setImageResource(android.R.color.transparent);
+                            }
                             break;
                         }
                     }
