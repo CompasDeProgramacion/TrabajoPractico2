@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity
         return NumeroImagen;
     }
 
-    public void Boton (View VistaBoton)
+    public void Boton (View VistaBoton) //Recontra funciona
     {
        ImageButton BotonPresionado = (ImageButton)VistaBoton;
         String StrBotonPresionado = BotonPresionado.getTag().toString();
@@ -185,49 +185,46 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    public void InversionBotones(int BtnApretado, int BtnACambiarA, int BtnACambiarB, int BtnACambiarC)
+    public void InversionBotones(int BtnApretado, int BtnACambiarA, int BtnACambiarB, int BtnACambiarC) //Funca baby
     {
         Drawable.ConstantState CodigoImagenRojo = ContextCompat.getDrawable(this, R.drawable.rojo).getConstantState();
-        Drawable.ConstantState CodigoImagenBotonApretado = ArrayBotones[BtnApretado].getDrawable().getConstantState();
+        ImageButton[] ArrayBotonesAux = new ImageButton[4];
+        ArrayBotonesAux[0] = ArrayBotones[BtnApretado];
+        ArrayBotonesAux[1] = ArrayBotones[BtnACambiarA];
+        ArrayBotonesAux[2] = ArrayBotones[BtnACambiarB];
+        ArrayBotonesAux[3] = ArrayBotones[BtnACambiarC];
+        for(int i=0; i<=4; i++)
+        {
+            Drawable.ConstantState CodigoImagenBotonApretado = ArrayBotones[i].getDrawable().getConstantState();
+            if (CodigoImagenBotonApretado == CodigoImagenRojo)
+            {
+                ArrayBotonesAux[i].setImageResource(R.drawable.verde);
+            }
+            else
+            {
+                ArrayBotonesAux[i].setImageResource(R.drawable.rojo);
+            }
+        }
+
         if (BtnApretado == 4)
         {
-            if (CodigoImagenBotonApretado == CodigoImagenRojo) //Si se cumple, significa que es rojo y tiene que ser cambiado a verde
+            for(int i=0; i<=4; i++)
             {
-                ArrayBotones[BtnApretado].setImageResource(R.drawable.verde);
-                ArrayBotones[BtnACambiarA].setImageResource(R.drawable.rojo);
-                ArrayBotones[BtnACambiarB].setImageResource(R.drawable.rojo);
-                ArrayBotones[BtnACambiarC].setImageResource(R.drawable.rojo);
-                ArrayBotones[7].setImageResource(R.drawable.rojo);
-            }
-            else
-            {
-                ArrayBotones[BtnApretado].setImageResource(R.drawable.rojo);
-                ArrayBotones[BtnACambiarA].setImageResource(R.drawable.verde);
-                ArrayBotones[BtnACambiarB].setImageResource(R.drawable.verde);
-                ArrayBotones[BtnACambiarC].setImageResource(R.drawable.verde);
-                ArrayBotones[7].setImageResource(R.drawable.verde);
+                Drawable.ConstantState CodigoImagenBotonApretado = ArrayBotones[i].getDrawable().getConstantState();
+                if (CodigoImagenBotonApretado == CodigoImagenRojo)
+                {
+                    ArrayBotonesAux[i].setImageResource(R.drawable.verde);
+                }
+                else
+                {
+                    ArrayBotonesAux[i].setImageResource(R.drawable.rojo);
+                }
             }
         }
-        else
-        {
-            if (CodigoImagenBotonApretado == CodigoImagenRojo) //Si se cumple, significa que es rojo y tiene que ser cambiado a verde
-            {
-                ArrayBotones[BtnApretado].setImageResource(R.drawable.verde);
-                ArrayBotones[BtnACambiarA].setImageResource(R.drawable.rojo);
-                ArrayBotones[BtnACambiarB].setImageResource(R.drawable.rojo);
-                ArrayBotones[BtnACambiarC].setImageResource(R.drawable.rojo);
-            }
-            else
-            {
-                ArrayBotones[BtnApretado].setImageResource(R.drawable.rojo);
-                ArrayBotones[BtnACambiarA].setImageResource(R.drawable.verde);
-                ArrayBotones[BtnACambiarB].setImageResource(R.drawable.verde);
-                ArrayBotones[BtnACambiarC].setImageResource(R.drawable.verde);
-            }
-        }
+
     }
 
-    public void ChequeoSiGane()
+    public void ChequeoSiGane() //EN CONSTRUCCIÓN
     {
         Drawable.ConstantState CodigoImagenRojo = ContextCompat.getDrawable(this, R.drawable.rojo).getConstantState();
         Drawable.ConstantState CodigoImagenVerde = ContextCompat.getDrawable(this, R.drawable.verde).getConstantState();
@@ -244,7 +241,9 @@ public class MainActivity extends AppCompatActivity
                        ContadorGanadorRojo++;
                        if(ContadorGanadorRojo == 8)
                        {
-                           //GANÓ
+                           Toast MensajeGanador = Toast.makeText(this, "¡Felicidades, ganaste!", Toast.LENGTH_SHORT);
+                           MensajeGanador.show();
+                           break;
                        }
                    }
                    else
@@ -263,7 +262,9 @@ public class MainActivity extends AppCompatActivity
                         ContadorGanadorVerde++;
                         if(ContadorGanadorVerde == 8)
                         {
-                            //GANÓ
+                            Toast MensajeGanador = Toast.makeText(this, "¡Felicidades, ganaste!", Toast.LENGTH_SHORT);
+                            MensajeGanador.show();
+                            break;
                         }
                     }
                     else
