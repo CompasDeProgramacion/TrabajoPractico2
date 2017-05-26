@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-
     public void NombreIngresado(View view)
     {
         EditText TextoNombre = (EditText) findViewById(R.id.TextoNombre);
@@ -184,7 +183,6 @@ public class MainActivity extends AppCompatActivity
             }
     }
 
-
     public void InversionBotones(int BtnApretado, int BtnACambiarA, int BtnACambiarB, int BtnACambiarC) //Funca baby de manera muy piola
     {
         Drawable.ConstantState CodigoImagenRojo = ContextCompat.getDrawable(this, R.drawable.rojo).getConstantState();
@@ -215,7 +213,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void ChequeoSiGane() //EN CONSTRUCCIÓN
+    public void ChequeoSiGane() //Funciona tranka palanka
     {
         Drawable.ConstantState CodigoImagenRojo = ContextCompat.getDrawable(this, R.drawable.rojo).getConstantState();
         Drawable.ConstantState CodigoImagenVerde = ContextCompat.getDrawable(this, R.drawable.verde).getConstantState();
